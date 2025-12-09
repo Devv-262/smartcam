@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { io } from 'socket.io-client';
 
+<<<<<<< HEAD
 // Allow overriding via Vite env variables `VITE_API_URL` and `VITE_SOCKET_URL`.
 // Default: Use current page host for Socket.IO (leverages Vite proxy).
 // For API, explicitly use the configured backend host.
@@ -13,6 +14,10 @@ const API_URL = apiEnv || `http://localhost:5000/api`;
 // Socket.IO uses current page host by default (leverages Vite proxy at /socket.io),
 // or explicit env var if set
 const SOCKET_URL = socketEnv || `http://${pageHost}`;
+=======
+const API_URL = 'http://localhost:5000/api';
+const SOCKET_URL = 'http://localhost:5000';
+>>>>>>> 4513f3dbe49a135911df4895bf01bc2e063e2c0f
 
 // Create axios instance
 const api = axios.create({
@@ -25,13 +30,20 @@ const api = axios.create({
 
 // Socket.IO connection
 export const socket = io(SOCKET_URL, {
+<<<<<<< HEAD
   path: '/socket.io',
+=======
+>>>>>>> 4513f3dbe49a135911df4895bf01bc2e063e2c0f
   transports: ['websocket', 'polling'],
   autoConnect: true,
   reconnection: true,
   reconnectionDelay: 1000,
+<<<<<<< HEAD
   reconnectionDelayMax: 5000,
   reconnectionAttempts: Infinity
+=======
+  reconnectionAttempts: 5
+>>>>>>> 4513f3dbe49a135911df4895bf01bc2e063e2c0f
 });
 
 // Socket connection handlers
@@ -72,6 +84,7 @@ export const apiService = {
   toggleEmailAlerts: (enabled) => api.post('/email/toggle', { enabled })
 };
 
+<<<<<<< HEAD
 export default api;
 
 // Helpful debug information printed when frontend loads
@@ -81,3 +94,6 @@ if (typeof window !== 'undefined') {
   console.info('[frontend] Socket connected:', socket.connected);
   console.info('[frontend] Socket ID:', socket.id || 'NOT_SET_YET');
 }
+=======
+export default api;
+>>>>>>> 4513f3dbe49a135911df4895bf01bc2e063e2c0f

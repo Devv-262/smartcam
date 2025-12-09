@@ -16,6 +16,7 @@ from email_alerts import EmailAlerts
 app = Flask(__name__)
 app.config['SECRET_KEY'] = Config.SECRET_KEY
 CORS(app, resources={r"/*": {"origins": "*"}})
+<<<<<<< HEAD
 socketio = SocketIO(
     app,
     cors_allowed_origins="*",
@@ -25,6 +26,9 @@ socketio = SocketIO(
     logger=True,
     engineio_logger=True
 )
+=======
+socketio = SocketIO(app, cors_allowed_origins="*")
+>>>>>>> 4513f3dbe49a135911df4895bf01bc2e063e2c0f
 
 # Initialize handlers
 mqtt_handler = MQTTHandler(socketio=socketio)

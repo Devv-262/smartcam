@@ -7,8 +7,11 @@ import './App.css';
 function App() {
   const [activeView, setActiveView] = useState('login');
 
+<<<<<<< HEAD
   console.log('[App] Rendering, activeView:', activeView);
 
+=======
+>>>>>>> 4513f3dbe49a135911df4895bf01bc2e063e2c0f
   return (
     <>
       {activeView === 'login' && <Login onNavigate={setActiveView} />}

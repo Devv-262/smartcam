@@ -13,7 +13,10 @@
     "host": "vite --host 0.0.0.0"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@tailwindcss/postcss": "^4.1.17",
+=======
+>>>>>>> 4513f3dbe49a135911df4895bf01bc2e063e2c0f
     "axios": "^1.13.2",
     "lucide-react": "^0.556.0",
     "react": "^19.2.1",
@@ -36,4 +39,8 @@
     "tailwindcss": "^4.1.17",
     "vite": "npm:rolldown-vite@7.2.5"
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 4513f3dbe49a135911df4895bf01bc2e063e2c0f
