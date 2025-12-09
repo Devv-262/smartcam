@@ -1,5 +1,5 @@
 import axios from 'axios';
-import io from 'socket.io-client';
+import { io } from 'socket.io-client';
 
 const API_URL = 'http://localhost:5000/api';
 const SOCKET_URL = 'http://localhost:5000';
@@ -15,8 +15,24 @@ const api = axios.create({
 
 // Socket.IO connection
 export const socket = io(SOCKET_URL, {
-  transports: ['websocket'],
-  autoConnect: true
+  transports: ['websocket', 'polling'],
+  autoConnect: true,
+  reconnection: true,
+  reconnectionDelay: 1000,
+  reconnectionAttempts: 5
+});
+
+// Socket connection handlers
+socket.on('connect', () => {
+  console.log('Connected to backend:', socket.id);
+});
+
+socket.on('disconnect', () => {
+  console.log('Disconnected from backend');
+});
+
+socket.on('connect_error', (error) => {
+  console.error('Socket connection error:', error);
 });
 
 // API methods

@@ -8,6 +8,10 @@ const AttackMetrics = ({ attackMetrics }) => {
       label: 'DoS Attacks', 
       color: 'red', 
       icon: Zap,
+      bgClass: 'bg-red-500/10',
+      borderClass: 'border-red-500/30',
+      textClass: 'text-red-400',
+      badgeClass: 'bg-red-500/20 text-red-300',
       gradient: 'from-red-500 to-red-600'
     },
     { 
@@ -15,6 +19,10 @@ const AttackMetrics = ({ attackMetrics }) => {
       label: 'SQL Injection', 
       color: 'orange', 
       icon: Terminal,
+      bgClass: 'bg-orange-500/10',
+      borderClass: 'border-orange-500/30',
+      textClass: 'text-orange-400',
+      badgeClass: 'bg-orange-500/20 text-orange-300',
       gradient: 'from-orange-500 to-orange-600'
     },
     { 
@@ -22,6 +30,10 @@ const AttackMetrics = ({ attackMetrics }) => {
       label: 'Brute Force', 
       color: 'yellow', 
       icon: Lock,
+      bgClass: 'bg-yellow-500/10',
+      borderClass: 'border-yellow-500/30',
+      textClass: 'text-yellow-400',
+      badgeClass: 'bg-yellow-500/20 text-yellow-300',
       gradient: 'from-yellow-500 to-yellow-600'
     },
     { 
@@ -29,6 +41,10 @@ const AttackMetrics = ({ attackMetrics }) => {
       label: 'ARP Spoofing', 
       color: 'purple', 
       icon: AlertTriangle,
+      bgClass: 'bg-purple-500/10',
+      borderClass: 'border-purple-500/30',
+      textClass: 'text-purple-400',
+      badgeClass: 'bg-purple-500/20 text-purple-300',
       gradient: 'from-purple-500 to-purple-600'
     },
     { 
@@ -36,6 +52,10 @@ const AttackMetrics = ({ attackMetrics }) => {
       label: 'Port Scans', 
       color: 'cyan', 
       icon: Network,
+      bgClass: 'bg-cyan-500/10',
+      borderClass: 'border-cyan-500/30',
+      textClass: 'text-cyan-400',
+      badgeClass: 'bg-cyan-500/20 text-cyan-300',
       gradient: 'from-cyan-500 to-cyan-600'
     },
     { 
@@ -43,38 +63,42 @@ const AttackMetrics = ({ attackMetrics }) => {
       label: 'MITM Attacks', 
       color: 'pink', 
       icon: ShieldAlert,
+      bgClass: 'bg-pink-500/10',
+      borderClass: 'border-pink-500/30',
+      textClass: 'text-pink-400',
+      badgeClass: 'bg-pink-500/20 text-pink-300',
       gradient: 'from-pink-500 to-pink-600'
     }
   ];
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-6">
-      {metrics.map(({ key, label, color, icon: Icon, gradient }) => {
+      {metrics.map(({ key, label, icon: Icon, bgClass, borderClass, textClass, badgeClass, gradient }) => {
         const count = attackMetrics[key] || 0;
         const isActive = count > 0;
         
         return (
           <div 
             key={key} 
-            className={`bg-${color}-500/10 backdrop-blur-xl rounded-xl p-5 border border-${color}-500/30 hover:scale-105 transition-all shadow-lg ${
+            className={`${bgClass} backdrop-blur-xl rounded-xl p-5 border ${borderClass} hover:scale-105 transition-all shadow-lg ${
               isActive ? 'animate-pulse-slow' : ''
             }`}
           >
             {/* Header with Icon and Badge */}
             <div className="flex items-center justify-between mb-2">
               <div className="relative">
-                <Icon className={`w-8 h-8 text-${color}-400`} />
+                <Icon className={`w-8 h-8 ${textClass}`} />
                 {isActive && (
-                  <div className="absolute inset-0 bg-current blur-lg opacity-30 rounded-full animate-pulse"></div>
+                  <div className={`absolute inset-0 blur-lg opacity-30 rounded-full ${textClass}`}></div>
                 )}
               </div>
-              <span className={`text-xs font-bold px-2 py-1 rounded-full bg-${color}-500/20 text-${color}-300`}>
+              <span className={`text-xs font-bold px-2 py-1 rounded-full ${badgeClass}`}>
                 LIVE
               </span>
             </div>
 
             {/* Label */}
-            <p className={`text-${color}-300 text-sm mb-1 font-semibold`}>
+            <p className={`${textClass} text-sm mb-1 font-semibold`}>
               {label}
             </p>
 
@@ -114,7 +138,7 @@ const AttackMetrics = ({ attackMetrics }) => {
         );
       })}
 
-      <style jsx>{`
+      <style>{`
         @keyframes pulse-slow {
           0%, 100% { opacity: 1; }
           50% { opacity: 0.8; }
