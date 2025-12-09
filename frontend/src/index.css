@@ -1,0 +1,298 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Styles */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom Utilities */
+@layer utilities {
+  /* Text Gradients */
+  .text-gradient-cyan {
+    @apply bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-red {
+    @apply bg-gradient-to-r from-red-400 to-orange-500 bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-green {
+    @apply bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent;
+  }
+
+  /* Glassmorphism */
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20;
+  }
+  
+  .glass-dark {
+    @apply bg-black/20 backdrop-blur-xl border border-white/10;
+  }
+
+  /* Animations */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+  
+  .animate-slide-down {
+    animation: slideDown 0.5s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
+
+  /* Custom Scrollbar */
+  .scrollbar-thin::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-gray-400/50 rounded-full;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400/70;
+  }
+
+  /* Glow Effects */
+  .glow-cyan {
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+  }
+  
+  .glow-red {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+  }
+  
+  .glow-green {
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
+  }
+
+  /* Card Styles */
+  .card-elevated {
+    @apply shadow-2xl hover:shadow-3xl transition-shadow duration-300;
+  }
+  
+  /* Button Styles */
+  .btn-primary {
+    @apply bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-bold py-3 px-6 rounded-xl transition-all transform hover:scale-105;
+  }
+  
+  .btn-danger {
+    @apply bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold py-3 px-6 rounded-xl transition-all transform hover:scale-105;
+  }
+  
+  .btn-success {
+    @apply bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-3 px-6 rounded-xl transition-all transform hover:scale-105;
+  }
+
+  /* Status Badges */
+  .badge-success {
+    @apply bg-green-500/20 border border-green-400 text-green-300 px-3 py-1 rounded-full text-xs font-bold;
+  }
+  
+  .badge-danger {
+    @apply bg-red-500/20 border border-red-400 text-red-300 px-3 py-1 rounded-full text-xs font-bold;
+  }
+  
+  .badge-warning {
+    @apply bg-yellow-500/20 border border-yellow-400 text-yellow-300 px-3 py-1 rounded-full text-xs font-bold;
+  }
+  
+  .badge-info {
+    @apply bg-blue-500/20 border border-blue-400 text-blue-300 px-3 py-1 rounded-full text-xs font-bold;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(6, 182, 212, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.8);
+  }
+}
+
+/* Custom Components */
+@layer components {
+  /* Dashboard Card */
+  .dashboard-card {
+    @apply bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-white/20 shadow-xl hover:shadow-2xl transition-all transform hover:scale-[1.02];
+  }
+  
+  /* Metric Card */
+  .metric-card {
+    @apply backdrop-blur-xl rounded-xl p-5 border hover:scale-105 transition-all shadow-lg;
+  }
+  
+  /* Alert Box */
+  .alert-critical {
+    @apply bg-gradient-to-r from-red-600/30 to-red-700/30 backdrop-blur-lg p-5 rounded-xl border-2 border-red-500;
+  }
+  
+  .alert-warning {
+    @apply bg-gradient-to-r from-yellow-600/30 to-yellow-700/30 backdrop-blur-lg p-5 rounded-xl border-2 border-yellow-500;
+  }
+  
+  .alert-info {
+    @apply bg-gradient-to-r from-blue-600/30 to-blue-700/30 backdrop-blur-lg p-5 rounded-xl border-2 border-blue-500;
+  }
+
+  /* Section Header */
+  .section-header {
+    @apply text-white font-bold text-2xl mb-4 flex items-center gap-2;
+  }
+  
+  /* Icon Container */
+  .icon-container {
+    @apply relative;
+  }
+  
+  .icon-glow {
+    @apply absolute inset-0 blur-xl opacity-40 rounded-full;
+  }
+}
+
+/* Recharts Custom Styles */
+.recharts-wrapper {
+  @apply text-sm;
+}
+
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  @apply stroke-gray-600;
+}
+
+.recharts-text {
+  @apply fill-gray-400 text-xs;
+}
+
+/* Loading States */
+.skeleton {
+  @apply animate-pulse bg-gray-700 rounded;
+}
+
+.loading-dots::after {
+  content: '';
+  animation: loading-dots 1.5s infinite;
+}
+
+@keyframes loading-dots {
+  0%, 20% { content: '.'; }
+  40% { content: '..'; }
+  60%, 100% { content: '...'; }
+}
+
+/* Responsive Utilities */
+@media (max-width: 640px) {
+  .dashboard-card {
+    @apply p-4;
+  }
+  
+  .section-header {
+    @apply text-xl;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print,
+  button,
+  .sidebar {
+    @apply hidden;
+  }
+  
+  body {
+    @apply bg-white text-black;
+  }
+}
+
+/* Accessibility */
+.sr-only {
+  @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+}
+
+/* Focus Styles for Keyboard Navigation */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  @apply outline-2 outline-offset-2 outline-cyan-500;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .glass-effect {
+    @apply bg-white/30 border-2;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    @apply !animate-none !transition-none;
+  }
+}
