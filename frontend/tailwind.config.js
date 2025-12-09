@@ -1,0 +1,67 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        background: "hsl(222.2 84% 4.9%)",
+        foreground: "hsl(210 40% 98%)",
+        border: "hsl(217.2 32.6% 17.5%)",
+      },
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
+        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'bounce-slow': 'bounce 2s infinite',
+      },
+      backdropBlur: {
+        xs: '2px',
+      },
+      boxShadow: {
+        'glow-cyan': '0 0 20px rgba(6, 182, 212, 0.5)',
+        'glow-red': '0 0 20px rgba(239, 68, 68, 0.5)',
+        'glow-green': '0 0 20px rgba(34, 197, 94, 0.5)',
+        'glow-yellow': '0 0 20px rgba(234, 179, 8, 0.5)',
+        'glow-purple': '0 0 20px rgba(139, 92, 246, 0.5)',
+      },
+    },
+  },
+  plugins: [],
+  safelist: [
+    // Safelist all color combinations used in dynamic classes
+    'bg-red-500', 'bg-red-600', 'bg-red-700',
+    'bg-orange-500', 'bg-orange-600', 'bg-orange-700',
+    'bg-yellow-500', 'bg-yellow-600', 'bg-yellow-700',
+    'bg-green-500', 'bg-green-600', 'bg-green-700',
+    'bg-cyan-500', 'bg-cyan-600', 'bg-cyan-700',
+    'bg-blue-500', 'bg-blue-600', 'bg-blue-700',
+    'bg-purple-500', 'bg-purple-600', 'bg-purple-700',
+    'bg-pink-500', 'bg-pink-600', 'bg-pink-700',
+    'text-red-300', 'text-red-400', 'text-red-500',
+    'text-orange-300', 'text-orange-400', 'text-orange-500',
+    'text-yellow-300', 'text-yellow-400', 'text-yellow-500',
+    'text-green-300', 'text-green-400', 'text-green-500',
+    'text-cyan-300', 'text-cyan-400', 'text-cyan-500',
+    'text-blue-300', 'text-blue-400', 'text-blue-500',
+    'text-purple-300', 'text-purple-400', 'text-purple-500',
+    'text-pink-300', 'text-pink-400', 'text-pink-500',
+    'border-red-400', 'border-red-500',
+    'border-orange-400', 'border-orange-500',
+    'border-yellow-400', 'border-yellow-500',
+    'border-green-400', 'border-green-500',
+    'border-cyan-400', 'border-cyan-500',
+    'border-blue-400', 'border-blue-500',
+    'border-purple-400', 'border-purple-500',
+    'border-pink-400', 'border-pink-500',
+    'from-red-500', 'from-red-600', 'to-red-700', 'to-red-800',
+    'from-orange-500', 'from-orange-600', 'to-orange-700', 'to-orange-800',
+    'from-yellow-500', 'from-yellow-600', 'to-yellow-700', 'to-yellow-800',
+    'from-green-500', 'from-green-600', 'to-green-700', 'to-green-800',
+    'from-cyan-500', 'from-cyan-600', 'to-cyan-700', 'to-cyan-800',
+    'from-blue-500', 'from-blue-600', 'to-blue-700', 'to-blue-800',
+    'from-purple-500', 'from-purple-600', 'to-purple-700', 'to-purple-800',
+    'from-pink-500', 'from-pink-600', 'to-pink-700', 'to-pink-800',
+  ],
+}

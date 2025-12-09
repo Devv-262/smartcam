@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Socket.IO Test</title>
+</head>
+<body>
+    <h1>Socket.IO Connection Test</h1>
+    <div id="status">Connecting...</div>
+    <div id="logs" style="border: 1px solid #ccc; padding: 10px; height: 400px; overflow-y: auto; background: #f0f0f0; font-family: monospace; white-space: pre-wrap;"></div>
+    
+    <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+    <script>
+        const logsDiv = document.getElementById('logs');
+        const statusDiv = document.getElementById('status');
+        
+        function log(msg) {
+            console.log(msg);
+            logsDiv.textContent += msg + '\n';
+            logsDiv.scrollTop = logsDiv.scrollHeight;
+        }
+        
+        log('Starting Socket.IO test...');
+        log('Attempting direct connection to http://localhost:5000');
+        
+        const socket = io('http://localhost:5000', {
+            transports: ['websocket', 'polling'],
+            autoConnect: true,
+            reconnection: true,
+            reconnectionDelay: 1000,
+            reconnectionAttempts: Infinity
+        });
+        
+        socket.on('connect', () => {
+            log('✓ CONNECTED to backend!');
+            log('Socket ID: ' + socket.id);
+            statusDiv.innerHTML = '<span style="color: green;">✓ CONNECTED</span>';
+        });
+        
+        socket.on('disconnect', () => {
+            log('✗ DISCONNECTED from backend');
+            statusDiv.innerHTML = '<span style="color: red;">✗ DISCONNECTED</span>';
+        });
+        
+        socket.on('connect_error', (error) => {
+            log('✗ CONNECTION ERROR: ' + error);
+            statusDiv.innerHTML = '<span style="color: red;">✗ ERROR: ' + error + '</span>';
+        });
+        
+        socket.on('system_stats', (data) => {
+            log('Received system_stats: ' + JSON.stringify(data));
+        });
+        
+        setTimeout(() => {
+            log('--- Test Status ---');
+            log('Connected: ' + socket.connected);
+            log('Socket ID: ' + socket.id);
+        }, 2000);
+    </script>
+</body>
+</html>

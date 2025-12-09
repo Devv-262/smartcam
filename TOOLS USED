@@ -1,0 +1,27 @@
+Python (Backend):
+
+paho-mqtt (ESP32 communication)
+flask (Web server)
+flask-cors (CORS support)
+flask-socketio (Real-time updates)
+psutil (System monitoring)
+requests (HTTP requests)
+python-dotenv (Environment variables)
+eventlet (Async support)
+
+Node.js (Frontend):
+
+react (UI framework)
+recharts (Charts/graphs)
+lucide-react (Icons)
+axios (API calls)
+mqtt (MQTT client)
+react-router-dom (Routing)
+tailwindcss (Styling)
+
+System Tools:
+
+mosquitto (MQTT broker)
+nmap (Network scanning)
+fail2ban (Brute force protection)
+ufw (Firewall)
